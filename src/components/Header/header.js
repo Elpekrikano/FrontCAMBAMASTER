@@ -55,7 +55,7 @@ class Header extends Component {
       <header className="header" style={{ background: '#f1f1f1' }}>
         <div className="container mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between max-w-screen-xl">
           <Link to={'/'} className="flex cursor-pointer title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <span className="ml-3 text-3xl font-bold">CAMBALACHESSS</span>
+            <span className="ml-3 text-3xl font-bold">CAMBALACHES</span>
           </Link>
           <nav className="flex items-center text-base justify-end ml-12">
             <Link to={'/Home'} className="mr-4 hover:text-gray-900">Inicio</Link>

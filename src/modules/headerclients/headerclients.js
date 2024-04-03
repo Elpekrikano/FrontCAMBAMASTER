@@ -49,27 +49,12 @@ class HeaderClients extends Component {
     });
   };
 
-  handleLogout = () => {
-    // Llama a la función handleLogout proporcionada por las props
-    this.props.handleLogout();
-    // Redirige al usuario al Home original
-    window.location.href = '/';
-    // Cierra el menú móvil
-    this.setState({
-      isMobileMenuOpen: false
-    });
-  };
-
-  handleLogin = () => {
-    // Llama a la función handleLogin proporcionada por las props
-    this.props.handleLogin();
-    // Cierra el menú móvil cuando el usuario inicia sesión
-    this.closeMobileMenu();
-  };
-
   render() {
     const { isSearchOpen, searchText, isMobileMenuOpen } = this.state;
     const { isLoggedIn } = this.props;
+    if (!isLoggedIn) {
+      return null; // Si el usuario no está logeado, no renderiza el encabezado
+    }
     return (
       <header className="headerclients" style={{ background: '#f1f1f1' }}>
         <div className="container mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between max-w-screen-xl">
@@ -103,28 +88,12 @@ class HeaderClients extends Component {
                 />
               )}
             </div>
-            {isLoggedIn ? (
-              <>
-                <Link to={'/cart'} className="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 ml-2">
-                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                </Link>
-                <button className="btn bg-red-500 text-white hover:bg-red-700 hover:text-white rounded py-2 px-4 ml-2" onClick={this.handleLogout}>
-                  Cerrar
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to={'/register'} className="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 mr-2" onClick={this.closeMobileMenu}>
-                  Registro
-                </Link>
-                <Link to={'/login'} className="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 mr-2" onClick={this.closeMobileMenu}>
-                  Entrar
-                </Link>
-                <Link to={'/cart'} className="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 ml-2">
-                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                </Link>
-              </>
-            )}
+            <Link to={'/cart'} className="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 ml-2">
+              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            </Link>
+            <button className="btn bg-red-500 text-white hover:bg-red-700 hover:text-white rounded py-2 px-4 ml-2" onClick={this.props.handleLogout}>
+              Cerrar
+            </button>
           </div>
           <button className="md:hidden" onClick={this.toggleMobileMenu}>
             {isMobileMenuOpen ? (

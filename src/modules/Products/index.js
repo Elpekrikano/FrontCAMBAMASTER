@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import placeholderImage from '../../assets/OIP.jpeg'; // Ruta de la imagen de marcador de posición
+import placeholderImage from '../../assets/C4MBALACH3S.jpg'; // Ruta de la imagen de marcador de posición
 
 const Products = () => {
   const [productName, setProductName] = useState('');
@@ -8,6 +8,7 @@ const Products = () => {
   const [productImages, setProductImages] = useState([]); // Estado para almacenar múltiples imágenes
   const [imagePreviews, setImagePreviews] = useState([placeholderImage]); // Estado para almacenar las vistas previas de las imágenes, inicializado con la imagen predeterminada
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Índice de la imagen actualmente visible en la vista previa
+  const [productType, setProductType] = useState(''); // Estado para el tipo de producto
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -17,6 +18,8 @@ const Products = () => {
       setProductDescription(value);
     } else if (name === 'productPrice') {
       setProductPrice(value);
+    } else if (name === 'productType') { // Manejar cambios en el campo de tipo de producto
+      setProductType(value);
     }
   };
 
@@ -76,6 +79,17 @@ const Products = () => {
           <div className="mb-4">
             <label htmlFor="productPrice" className="block text-gray-700 text-sm font-bold mb-2">Precio del Producto</label>
             <input type="number" id="productPrice" name="productPrice" className="border rounded w-full py-2 px-3" value={productPrice} onChange={handleInputChange} />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="productType" className="block text-gray-700 text-sm font-bold mb-2">Tipo de Producto</label>
+            <select id="productType" name="productType" className="border rounded w-full py-2 px-3" value={productType} onChange={handleInputChange}>
+              <option value="">Seleccione un tipo</option>
+              <option value="1">chaquetas</option>
+              <option value="2">pantalones</option>
+              <option value="3">zapatos</option>
+              <option value="4">medias</option>
+              {/* Agrega más opciones según tus necesidades */}
+            </select>
           </div>
           <div className="mb-4">
             <label htmlFor="productImage" className="block text-gray-700 text-sm font-bold mb-2">Imagen(es) del Producto</label>
