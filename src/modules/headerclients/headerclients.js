@@ -63,7 +63,7 @@ class HeaderClients extends Component {
           </Link>
           <nav className="flex items-center text-base justify-end ml-12">
             <Link to={'/'} className="mr-4 hover:text-gray-900">Inicio</Link>
-            <Link to={'/products'} className="mr-4 hover:text-gray-900">Productos</Link>
+            <Link to={'/loadproducts'} className="mr-4 hover:text-gray-900">Subir</Link>
             <Link to={'/contact'} className="mr-4 hover:text-gray-900">Contactanos</Link>
             <Link to={'/about'} className="mr-4 hover:text-gray-900">Nosotros</Link>
           </nav>

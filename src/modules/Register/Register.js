@@ -52,7 +52,7 @@ const Register = () => {
   const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
   const handleSubmit = async (values) => {
     try {
-      await axios.post("http://localhost:3001/usuarios/agregar", values);
+      await axios.post("https://backcambamaster-production.up.railway.app/usuarios/agregar", values);
       alert("Usuario registrado correctamente");
       navigate("/login"); // Redirigir al usuario al formulario de inicio de sesión
     } catch (error) {

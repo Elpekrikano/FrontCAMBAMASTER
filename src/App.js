@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Header from './components/Header/header'; // Importa el Header original
 import HeaderClients from './modules/headerclients/headerclients'; // Importa el HeaderClients
 import Home from './components/Home';
-import { Routes, Route, Navigate } from 'react-router-dom'; // Agrega Navigate
+import { Routes, Route } from 'react-router-dom';
 import Product from './modules/Product';
 import Products from './modules/Products';
 import CategoryProducts from './modules/CategoryProducts';
@@ -12,22 +12,22 @@ import Cart from './modules/Cart';
 import Register from './modules/Register/Register';
 import Login from './modules/Login/Login';
 import Inicio from './modules/Init/inicio'; // Importa la vista Inicio
+import LoadProducts from './modules/loadproducts';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para indicar si el usuario ha iniciado sesión
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    // Deja que React Router maneje la redirección a la página de inicio
-  };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   const handleImageUpload = async (formData) => {
     try {
-      const response = await fetch('http://localhost:3001/upload', {
+      const response = await fetch('https://backcambamaster-production.up.railway.app/upload', {
         method: 'POST',
         body: formData
       });
@@ -44,34 +44,24 @@ function App() {
   return (
     <div>
       {isLoggedIn ? (
-        <HeaderClients isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+        <HeaderClients isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> // Renderiza HeaderClients si el usuario ha iniciado sesión
       ) : (
-        <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+        <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> // Renderiza el Header original si el usuario no ha iniciado sesión
       )}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/loadproducts" element={<LoadProducts handleImageUpload={handleImageUpload} />} />
         <Route path="/products/:id" element={<Product />} />
-        <Route path="/products" element={<Products handleImageUpload={handleImageUpload} />} />
+        <Route path="/products" element={<Products/>} />
         <Route path="/categories/:name" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<div>404</div>} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/login"
-          element={
-            <Login
-              handleLogin={handleLogin} // Pasa la función handleLogin al componente Login
-              setIsLoggedIn={setIsLoggedIn} // Pasa la función setIsLoggedIn al componente Login
-            />
-          }
-        />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} /> {/* Pasa la función setIsLoggedIn al componente Login */}
         <Route path="/home" element={<Home />} />
-        <Route path="/inicio" element={<Inicio />} />
-        {/* Redirecciona a la página de inicio si el usuario no está autenticado */}
-        <Route
-          path="/*"
-          element={isLoggedIn ? <Navigate to="/" /> : <Navigate to="/login" />}
-        />
+        <Route path="/inicio" element={<Inicio />} /> {/* Agrega la ruta para la vista Inicio */}
       </Routes>
+      {/* Lógica condicional para mostrar el Footer en todas las vistas excepto Products */}
       {window.location.pathname !== '/products' && <Footer />}
     </div>
   );

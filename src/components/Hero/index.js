@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import heroImg from '../../assets/original.jpg';
 import image2 from '../../assets/Flowers.jpeg';
 import image3 from '../../assets/Gaban.jpeg';
 import image4 from '../../assets/Chaqueta_azul.jpeg';
 
-const Hero = () => {
+const Hero = ({ productos }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const searchRef = useRef(null);
   const images = [heroImg, image2, image3, image4];
 
   useEffect(() => {
@@ -14,6 +18,28 @@ const Hero = () => {
     }, 3000); // Cambia la imagen cada 3 segundos
     return () => clearInterval(interval);
   }, [currentImage, images.length]);
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearchChange = (event) => {
+    const inputValue = event.target.value;
+    setSearchText(inputValue);
+  };
+
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsSearchOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <section className="text-white body-font mt-20 relative" style={{ margin: 0 }}>
@@ -31,7 +57,7 @@ const Hero = () => {
             <img
               src={image}
               className="card-img-top"
-              alt={`image${index}`}
+              alt={`imagen ${index + 1}`}
               style={{
                 width: '100%',
                 height: '1000px',
@@ -49,9 +75,33 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto flex justify-center mt-10">
-        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Todos los productos</button>
-        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Mas informacion</button>
+      <div className="container mx-auto flex justify-center mt-10" style={{ marginLeft: isSearchOpen ? '-200px' : '0', transition: 'margin-left 0.5s ease' }}>
+        <Link to="/products" className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          Todos los productos
+        </Link>
+        <Link to="/more-info" className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+          Más información
+        </Link>
+        <div className="relative">
+          <button
+            className="search-toggle bg-gray-200 text-gray-900 rounded border-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 py-2 px-4 ml-2"
+            onClick={toggleSearch}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 19l-6-6m0 0l-6 6m6-6l6-6" />
+            </svg>
+          </button>
+          {isSearchOpen && (
+            <input
+              ref={searchRef}
+              className="search-input absolute top-0 right-0 bg-gray-200 text-gray-900 rounded border-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 py-2 px-4 mr-2"
+              type="text"
+              placeholder="Buscar producto..."
+              value={searchText}
+              onChange={handleSearchChange}
+            />
+          )}
+        </div>
       </div>
       <style>
         {`
@@ -74,6 +124,12 @@ const Hero = () => {
               left: 50%; /* Centra horizontalmente */
               transform: translate(-50%, -50%);
             }
+          }
+
+          /* Animación para desplazar los botones hacia la izquierda */
+          .move-left {
+            transform: translateX(-200px); /* Cambia la posición horizontal */
+            transition: transform 0.5s ease; /* Agrega una transición suave */
           }
         `}
       </style>

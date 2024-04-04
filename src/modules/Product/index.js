@@ -8,7 +8,7 @@ const Productos = () => {
 
   useEffect(() => {
     const fetchProductos = async () => {
-      const response = await fetch(`http://localhost:3001/productos/${id}`)
+      const response = await fetch(`https://backcambamaster-production.up.railway.app/productos/${id}`)
       const data = await response.json()
       console.log(data)
       setProductos(data)
