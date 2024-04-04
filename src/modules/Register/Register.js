@@ -54,7 +54,7 @@ const Register = () => {
     try {
       await axios.post("https://backcambamaster-production.up.railway.app/usuarios/agregar", values);
       alert("Usuario registrado correctamente");
-      navigate("/login"); // Redirigir al usuario al formulario de inicio de sesión
+      navigate("/login"); 
     } catch (error) {
       console.error("Error al registrar usuario:", error);
       alert("Error al registrar usuario. Por favor, inténtalo de nuevo.");
@@ -73,7 +73,7 @@ const Register = () => {
 
   const fetchTiposDocumento = async () => {
     try {
-      const response = await fetch("http://localhost:3001/tipo_documento/");
+      const response = await fetch("https://backcambamaster-production.up.railway.app/tipo_documento/");
       const data = await response.json();
       setTiposDocumento(data);
     } catch (error) {
