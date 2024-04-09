@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="home.component.scss">
+</head>
+<body>
+    <header class="header">
+        <div class="container flex items-center justify-between">
+            <div>
+                <a href="/home" class="flex cursor-pointer title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <span class="ml-3 text-2xl font-bold">CAMBALACHES</span>
+                </a>
+            </div>
+            <nav class="flex-grow flex justify-center">
+                <a href="/home" class="mr-4 hover:text-gray-900 btn">Inicio</a>
+                <a href="/contactanos" class="mr-4 hover:text-gray-900 btn">Contactanos</a>
+                <a href="/agregarproductos" class="mr-4 hover:text-gray-900 btn">Agregar Productos</a>
+                <a href="../perfil" class="mr-4 hover:text-gray-900 btn">perfil</a>
+                <a href="/" class="mr-4 hover:text-gray-900 btn">Cerrar Sesión</a>
+            </nav>
+            <div class="flex items-center">
+                <a href="/cart" class="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 mr-2">Carrito
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br> <br>
+    <section class="hero-container" style="background-color: rgba(255, 255, 255, 0.7); padding: 20px;">
+        <div class="container">
+            <div class="animated-text-container">
+                <div style="text-align: center;">
+                    <h2 class="animated-text">La moda se transforma en expresión y la diversidad es la clave de tu armario.</h2>
+                    <p class="animated-text"><small class="text-body-secondary">CAMBALACHES</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-container">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Iterar sobre la lista de productos y mostrar las tarjetas de productos -->
+                <div *ngFor="let producto of productos" class="producto-card">
+                    <h3>{{ producto.titulo }}</h3>
+                    <div class="clearfix">
+                        <img [src]="producto.urlImagen" class="rounded float-start" alt="Imagen del producto">
+                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                        <p><strong>Precio:</strong> {{ producto.precio }}</p>
+                        <p><strong>Categoría:</strong> {{ producto.categoria }}</p>
+                        <p><strong>Estado:</strong> {{ producto.estado }}</p>
+                        <p><strong>Publicado por:</strong> {{ producto.primerNombre }} {{ producto.primerApellido }}</p>
+                        <button class="btn bg-black text-white hover:bg-white hover:text-black rounded py-2 px-4 mr-2" (click)="comprarProducto(producto)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="ad-banner">
+        <img src='/assets/logo512.jpg'  alt="Publicidad">
+        <p>¡Aprovecha nuestras promociones especiales!</p>
+    </div>
+</body>
+</html>

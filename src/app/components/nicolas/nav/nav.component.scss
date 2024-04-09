@@ -1,0 +1,216 @@
+.navbar {
+    padding: 10px 20px;
+}
+/* Estilos para el menú de navegación */
+.navbar.bg-dark {
+    background-color: #c4bc9e !important; /* Cambia el color de fondo de la barra de navegación */
+    color: #000000; /* Cambia el color del texto en la barra de navegación */
+}
+.navbar-brand:hover {
+    color: #fff;
+}
+.btn {
+    font-size: 20px;
+}
+/* Colores editables para los botones */
+.perfil-btn {
+    background-color: #007bff; /* Azul */
+    border-color: #007bff;
+    color: #fff; /* Texto blanco */
+}
+.estadisticas-btn {
+    background-color: #000000; /* Gris */
+    border-color: #6c757d;
+    color: #fff; /* Texto blanco */
+}
+.editar-usuarios-btn {
+    background-color: #d10b0b; /* Gris */
+    border-color: #6c757d;
+    color: #fff; /* Texto blanco */
+}
+.editar-productos-btn {
+    background-color: #08deb7; /* Gris */
+    border-color: #6c757d14;
+    color: #fff; /* Texto blanco */
+}
+.cerrar-btn {
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+    color: #ffffff; /* Texto blanco */
+}
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover {
+    opacity: 0.8; /* Reducir opacidad al pasar el mouse */
+}
+
+
+/* Estilos adicionales */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+/* Estilos específicos para imágenes individuales */
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 100px;
+
+    &:first-child {
+        margin-bottom: 100px; /* Ajusta el margen inferior para la primera imagen */
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 200%;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin: 1;
+    }
+
+    &.sergio {
+        position: absolute;
+        left: 1%;
+        transform: translateX(50%) translateY(50%);
+    }
+
+    &.sebastian {
+        position: absolute;
+        left: 1%;
+        transform: translateX(5%) translateY(5%);
+        margin-left: 1px; /* Ajusta la distancia horizontal entre las imágenes */
+    }
+}
+/* Estilos específicos para el texto "CAMBALACHES" dentro de la card */
+.card-text strong {
+    color: var(--body-secondary-color);
+}
+
+/* estilos.css */
+@keyframes desplazamiento {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.card-title {
+    font-size: 3em;
+    animation: desplazamiento 20s linear infinite;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+footer{
+    background: #fcfcfc;
+}
+footer{
+    background: #111;
+    width: 100%;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
+    margin-top: 0px; /* Agrega un margen superior para separarlo del contenido */
+    padding-bottom: 20px; /* Ajusta el relleno inferior según sea necesario */
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+
+
+
+
+body {
+    background-color: #c0bcbc; /* Color gris claro */
+}

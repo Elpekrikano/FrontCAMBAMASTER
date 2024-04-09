@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../../../assets/chica_cami_cuadros.jpeg'); /* Ruta de tu imagen de fondo */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login {
+  width: 100%;
+  max-width: 400px; /* Tamaño máximo del formulario */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Ajusta la opacidad del fondo del formulario */
+  border-radius: 10px; /* Ajusta el radio de borde para suavizar los bordes */
+}
+
+.custom-form {
+  background: transparent; /* Fondo transparente */
+  padding: 2rem 3rem;
+  border-radius: 2.5rem;
+  color: black;
+}
+
+.custom-form input {
+  display: block;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  background: rgba(235, 245, 252, 0.7); /* Ajusta la opacidad del fondo de los campos de entrada */
+}
+
+.custom-form button {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #bcd8c1;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+
+}
+.register-container {
+  text-align: center;
+}

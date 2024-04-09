@@ -1,0 +1,27 @@
+<body>
+  <div class="container">
+    <div class="login">
+      <form class="custom-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" method="post">
+        <h1>Login</h1>
+        <input
+          class="input_form_login"
+          type="email"
+          placeholder="Email"
+          formControlName="correo"
+          required
+        />
+        <input
+          class="input_form_login"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <button type="submit" class="boton_enviar_formulario">Acceder</button>
+        <div class="register-container">
+          <a class="link_register_password" href="registro">Regístrate</a> 
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

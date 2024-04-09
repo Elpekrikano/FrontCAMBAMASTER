@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="btn btn-back" onclick="history.go(-1)">Regresar</button>
+  </nav>
+  
+
+  <div class="container">
+    <div class="product-details">
+      <h2>Detalles del Producto</h2>
+      <div *ngFor="let product of productosEnCarrito" class="product">
+        <img [src]="product.urlImagen" alt="Imagen del producto">
+        <div class="details">
+          <h3>{{ product.titulo }}</h3>
+          <p><strong>Precio:</strong> ${{ product.precio }}</p>
+          <p><strong>Cantidad:</strong> {{ product.quantity }}</p>
+          <button (click)="handleQuantity(product, -1)">-</button>
+          <button (click)="handleQuantity(product, 1)">+</button>
+          <button (click)="removeProduct(product)">Eliminar</button>
+        </div>
+      </div>
+      <div *ngIf="productosEnCarrito.length === 0" class="no-products">No hay productos en el carrito</div>
+      <div class="total">Total: ${{ calcularTotal() }}</div>
+    </div>
+    <div class="payment-methods">
+      <h2>Métodos de Pago</h2>
+      <form>
+        <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+        <label for="credit-card">Tarjeta de Crédito</label><br>
+        <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+        <label for="bank-transfer">Transferencia Bancaria</label><br>
+        <input type="radio" id="paypal" name="payment-method" value="paypal">
+        <label for="paypal">PayPal</label><br>
+      </form>
+      <div class="checkout-button">
+        <button (click)="checkout()">Pagar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "/";
+    }
+  </script>
+  
+</body>
+
+</html>

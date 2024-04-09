@@ -1,0 +1,32 @@
+<body style="background-image: url('assets/Chica_Chaqueta_Azul.jpeg'); background-size: cover; background-repeat: no-repeat;">
+  <div class="register-container">
+    <div class="register-card">
+          <h1>Registro</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register_form">
+
+            <label for="tipo_documento">Tipo de documento *</label>
+            <select formControlName="tipo_documento" class="form-control" id="tipo_documento">
+                <option value="CC">CC</option>
+                <option value="TI">TI</option>
+                <option value="CE">CE</option>
+            </select>
+
+
+
+              <input type="text" formControlName="documento" placeholder="Número de Documento" required />
+
+              <input type="text" formControlName="primerNombre" placeholder="Primer Nombre" required />
+
+              <input type="text" formControlName="primerApellido" placeholder="Primer Apellido" required />
+
+              <input type="email" formControlName="correo" placeholder="Correo Electrónico" required />
+
+              <input type="password" formControlName="password" placeholder="Contraseña" required />
+
+              <button class="boton" type="submit" value="Registrarse">Regístrate</button>
+
+              <!-- <input class="btn btn-primary form_submit" type="submit" value="Registrarse" /> -->
+          </form>
+      </div>
+  </div>
+</body>

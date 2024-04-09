@@ -1,0 +1,98 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: hwb(23 14% 11% / 0.882);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-details,
+.payment-methods {
+  width: 48%;
+  background-color: #ffffffc0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center; /* Centrar el texto */
+}
+
+.product-details h2,
+.payment-methods h2 {
+  margin-top: 0;
+}
+
+.product {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center; /* Centrar los elementos */
+}
+
+.product img {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.product .details {
+  flex-grow: 1;
+  text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.product .details h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.product .details p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.no-products {
+  margin-top: 20px; /* Espacio superior para el mensaje */
+}
+
+.payment-methods form {
+  margin-top: 20px;
+}
+
+.payment-methods input[type="radio"] {
+  margin-right: 10px;
+}
+
+.checkout-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navbar {
+  background-color: #e46e24e1; /* Color de fondo de la barra de navegación */
+  padding: 10px; /* Espaciado interno */
+}
+
+.btn-back {
+  background-color: #007bff; /* Color de fondo del botón */
+  border: none; /* Quita el borde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor al pasar */
+}
+
+.btn-back:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el cursor */
+}
+
+
+
+
