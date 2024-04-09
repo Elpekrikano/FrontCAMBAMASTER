@@ -4,8 +4,6 @@ html {
     text-size-adjust: 100%;
     line-height: 1.4;
 }
-
-
 * {
     margin: 0;
     padding: 0;
@@ -13,12 +11,10 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 body {
     color: #404040;
     font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
 }
-
 .perfil-usuario {
     background: linear-gradient(#c0ac97, transparent);
     color: #333;
@@ -53,7 +49,7 @@ body {
 .perfil-usuario .portada-perfil {
     display: block;
     background-size: cover;
-    background-position: center 25%; /* Ajuste para que la imagen se alinee hacia arriba y esté centrada verticalmente */
+    background-position: center 25%;
     background-repeat: no-repeat;
     position: relative;
     height: 25rem;
@@ -218,85 +214,66 @@ body {
         display: inline-block;
     }
 }
-
-
-/* Estilos para el contenedor de productos */
 .productos {
-    margin-top: 2rem; /* Ajusta este valor según sea necesario para separar los productos del perfil */
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centrar los productos horizontalmente */
+    justify-content: center;
 }
-
-/* Estilos CSS para los productos */
 .producto-card {
     border: 1px solid #d8b6b6;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(33.33% - 40px); /* Ajustar el ancho para que haya tres productos por fila */
-    max-width: 300px; /* Establecer un ancho máximo */
-    box-sizing: border-box; /* Incluir el padding y border en el ancho */
-    background-color: #f9f9f9; /* Color de fondo */
+    width: calc(33.33% - 40px);
+    max-width: 300px; 
+    box-sizing: border-box; 
+    background-color: #f9f9f9;
 }
-
 .producto-card img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
-
 .producto-card p {
     margin-bottom: 5px;
 }
-
 .producto-card button {
     display: block;
     margin-top: 10px;
 }
-
-/* Espacio entre los cards cada tercer card */
 .producto-card:nth-child(3n) {
     margin-right: 20px;
 }
-/* Clearfix para evitar problemas de float */
 .container::after {
     content: "";
     display: table;
     clear: both;
 }
-
-/* Estilos CSS para los productos */
 .producto-card {
     border: 1px solid #d8b6b6;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(33.33% - 40px); /* Ajustar el ancho para que haya tres productos por fila */
-    max-width: 300px; /* Establecer un ancho máximo */
-    box-sizing: border-box; /* Incluir el padding y border en el ancho */
-    background-color: #f9f9f9; /* Color de fondo */
+    width: calc(33.33% - 40px);
+    max-width: 300px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
 }
-
 .producto-card img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
-
 .producto-card p {
     margin-bottom: 5px;
 }
-
 .producto-card button {
     display: block;
     margin-top: 10px;
 }
-
-/* Espacio entre los cards cada tercer card */
 .producto-card:nth-child(3n) {
     margin-right: 20px;
 }
-
